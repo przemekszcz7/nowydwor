@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Jost", sans-serif;
+
+  --color-gold: #C9A96E;
+  --color-ivory: #FAF7F2;
+  --color-blush: #F2E8E1;
+  --color-charcoal: #2C2C2C;
+  --color-taupe: #8A7560;
+
+  --animate-shimmer: shimmer 4s linear infinite;
+  
+  @keyframes shimmer {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  @keyframes ken-burns {
+    from {
+      transform: scale(1) translate(0, 0);
+    }
+    to {
+      transform: scale(1.1) translate(-1%, -1%);
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans text-charcoal bg-white selection:bg-gold/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .shimmer-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold via-white to-gold bg-[length:200%_auto] animate-shimmer;
+  }
+
+  .linen-texture {
+    position: relative;
+  }
+
+  .linen-texture::before {
+    content: "";
+    @apply absolute inset-0 pointer-events-none opacity-[0.03];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .ribbon-divider {
+    @apply flex items-center justify-center w-full my-12;
+  }
+
+  .ribbon-divider::before,
+  .ribbon-divider::after {
+    content: "";
+    @apply h-px flex-1 bg-gold/30 max-w-xs;
+  }
+
+  .ribbon-divider span {
+    @apply px-4 text-gold text-lg;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Dom Weselny Nowy Dwór",
+  "description": "Luksusowa strona internetowa Domu Weselnego Nowy Dwór w Walentynowie. Elegancja, tradycja i niezapomniane chwile.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
